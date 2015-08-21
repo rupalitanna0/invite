@@ -1,0 +1,29 @@
+<%= form_for(@photogallery) do |f| %>
+  <% if @photogallery.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@photogallery.errors.count, "error") %> prohibited this photogallery from being saved:</h2>
+
+      <ul>
+      <% @photogallery.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :topic %><br>
+    <%= f.text_field :topic %>
+  </div>
+  <div class="field">
+    <%= f.label :pics %><br>
+    <%= f.text_field :pics %>
+  </div>
+  <div class="field">
+    <%= f.label :details %><br>
+    <%= f.text_field :details %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

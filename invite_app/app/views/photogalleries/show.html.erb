@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Topic:</strong>
+  <%= @photogallery.topic %>
+</p>
+
+<p>
+  <strong>Pics:</strong>
+  <%= @photogallery.pics %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @photogallery.details %>
+</p>
+
+<%= link_to 'Edit', edit_photogallery_path(@photogallery) %> |
+<%= link_to 'Back', photogalleries_path %>
