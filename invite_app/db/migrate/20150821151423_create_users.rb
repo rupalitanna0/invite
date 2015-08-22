@@ -5,10 +5,10 @@ class CreateUsers < ActiveRecord::Migration
       t.string :lastname
       t.integer :age, default: 0
       t.string :password_digest
-      t.string :addresss
+      t.string :address
       t.string :state
       t.string :gender
-      t.integer :cellno, default: 0
+      t.string :cellno
       t.string :email
 
       t.timestamps null: false

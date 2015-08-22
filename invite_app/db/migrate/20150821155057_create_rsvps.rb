@@ -10,7 +10,7 @@ class CreateRsvps < ActiveRecord::Migration
       t.string :address
       t.string :state
       t.string :zipcode
-      t.integer :cellno, default: 0
+      t.string :cellno
       t.string :email
 
       t.timestamps null: false

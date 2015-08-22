@@ -8,7 +8,7 @@ class CreateGuests < ActiveRecord::Migration
       t.string :addresss
       t.string :state
       t.string :gender
-      t.integer :cellno, default: 0
+      t.string :cellno
       t.string :email
       t.integer :zipcode, default: 0
 

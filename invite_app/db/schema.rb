@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20150821163628) do
     t.string   "addresss"
     t.string   "state"
     t.string   "gender"
-    t.integer  "cellno",     default: 0
+    t.string   "cellno"
     t.string   "email"
     t.integer  "zipcode",    default: 0
     t.datetime "created_at",             null: false
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20150821163628) do
     t.string   "address"
     t.string   "state"
     t.string   "zipcode"
-    t.integer  "cellno",     default: 0
+    t.string   "cellno"
     t.string   "email"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
@@ -76,10 +76,10 @@ ActiveRecord::Schema.define(version: 20150821163628) do
     t.string   "lastname"
     t.integer  "age",             default: 0
     t.string   "password_digest"
-    t.string   "addresss"
+    t.string   "address"
     t.string   "state"
     t.string   "gender"
-    t.integer  "cellno",          default: 0
+    t.string   "cellno"
     t.string   "email"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
