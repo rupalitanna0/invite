@@ -6,7 +6,7 @@ one:
   lastname: MyString
   age: 1
   password_digest: <%= BCrypt::Password.create('secret') %>
-  addresss: MyString
+  address: MyString
   state: MyString
   gender: MyString
   cellno: 1
@@ -18,7 +18,7 @@ two:
   lastname: MyString
   age: 1
   password_digest: <%= BCrypt::Password.create('secret') %>
-  addresss: MyString
+  address: MyString
   state: MyString
   gender: MyString
   cellno: 1

@@ -1,15 +1,32 @@
 class PhotogalleriesController < ApplicationController
   before_action :set_photogallery, only: [:show, :edit, :update, :destroy]
+  attr_accessor :photogalleries 
 
   # GET /photogalleries
   # GET /photogalleries.json
+  
+
   def index
+    @photoGalls = []
     @photogalleries = Photogallery.all
+    @photogalleries.each_with_index do |gallery, i|
+      updated_gallery = JSON.parse(gallery.to_json)
+      event = JSON.parse(gallery.event.to_json)
+      updated_gallery['event'] = event
+      @photoGalls.push(updated_gallery)
+    end
+
+    respond_to do |format|
+      
+        format.html { render :index }
+        format.json {render json: @photoGalls}
+      end
   end
 
   # GET /photogalleries/1
   # GET /photogalleries/1.json
   def show
+
   end
 
   # GET /photogalleries/new

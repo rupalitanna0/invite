@@ -18,7 +18,7 @@ class GuestsControllerTest < ActionController::TestCase
 
   test "should create guest" do
     assert_difference('Guest.count') do
-      post :create, guest: { addresss: @guest.addresss, age: @guest.age, cellno: @guest.cellno, email: @guest.email, gender: @guest.gender, lastname: @guest.lastname, middlename: @guest.middlename, name: @guest.name, password: 'secret', password_confirmation: 'secret', state: @guest.state }
+      post :create, guest: { address: @guest.address, age: @guest.age, cellno: @guest.cellno, email: @guest.email, gender: @guest.gender, lastname: @guest.lastname, middlename: @guest.middlename, name: @guest.name, password: 'secret', password_confirmation: 'secret', state: @guest.state }
     end
 
     assert_redirected_to guest_path(assigns(:guest))
@@ -35,7 +35,7 @@ class GuestsControllerTest < ActionController::TestCase
   end
 
   test "should update guest" do
-    patch :update, id: @guest, guest: { addresss: @guest.addresss, age: @guest.age, cellno: @guest.cellno, email: @guest.email, gender: @guest.gender, lastname: @guest.lastname, middlename: @guest.middlename, name: @guest.name, password: 'secret', password_confirmation: 'secret', state: @guest.state }
+    patch :update, id: @guest, guest: { address: @guest.address, age: @guest.age, cellno: @guest.cellno, email: @guest.email, gender: @guest.gender, lastname: @guest.lastname, middlename: @guest.middlename, name: @guest.name, password: 'secret', password_confirmation: 'secret', state: @guest.state }
     assert_redirected_to guest_path(assigns(:guest))
   end
 

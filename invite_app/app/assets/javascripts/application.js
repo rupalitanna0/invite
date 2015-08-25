@@ -10,8 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
 //= require turbolinks
 //= require underscore
 //= require backbone
@@ -27,75 +25,28 @@ var App = {
 	Models: {}, 
 	Collections: {}, 
 	Views: {}, 
-	Routers: {}
-};
+	Routers: {},
+  initialize: function(){
+    this.collectionPhotogallery = new App.Collections.PhotogalleryCollection();
+    this.listallViewPhotogallery = new App.Views.Photogallery({collection: this.collectionPhotogallery});
 
+    this.viewLogin = new App.Views.LoginView();
+    this.signup = new SignupView();
 
-// Rails CSRF Protection
-$(document).ajaxSend(function (e, xhr, options) {
-  var token = $("meta[name='csrf-token']").attr("content");
-  xhr.setRequestHeader("X-CSRF-Token", token);
-});
+    this.collectionEvents = new App.Collections.EventsCollection();
+    this.listallViewEvent = new App.Views.Event({collection: this.collectionEvents});
 
-// Underscore.js Template Settings
-_.templateSettings = {
-    interpolate: /\{\{\=(.+?)\}\}/g,
-    evaluate: /\{\{(.+?)\}\}/g
-};
-
-// Routing Based on URL
-Router = {
-  '/signup': function () { new SignupView(); },
-
-  route: function (path) {
-    _.each(Router, function(callback, route) {
-      if (!_.isRegExp(route)) {
-        route = Backbone.Router.prototype._routeToRegExp(route);
-      }
-      if(route.test(path)) {
-        var args = Backbone.Router.prototype._extractParameters(route, path);
-        callback.apply(this, args);
-      }
-    });
+    this.collectionGuests = new App.Collections.GuestsCollection();
+    this.listallViewGuest = new App.Views.Event({collection: this.collectionGuests});
   }
 };
 
-// Start the app when the page has loaded.
-$(document).ready(function () {
-  Router.route(window.location.pathname);
-});
-
-$(document).ajaxSend(function (e, xhr, options) {
-  var token = $("meta[name='csrf-token']").attr("content");
-  xhr.setRequestHeader("X-CSRF-Token", token);
-});
-
-_.templateSettings = {
-    interpolate: /\{\{\=(.+?)\}\}/g,
-    evaluate: /\{\{(.+?)\}\}/g
-};
-
-Router = {
-  '/signup': function () { new SignupView(); },
-  '/login': function () { new LoginView(); },
-
-  route: function (path) {
-    _.each(Router, function(callback, route) {
-      if (!_.isRegExp(route)) {
-        route = Backbone.Router.prototype._routeToRegExp(route);
-      }
-      if(route.test(path)) {
-        var args = Backbone.Router.prototype._extractParameters(route, path);
-        callback.apply(this, args);
-      }
-    });
-  }
-};
-
-$(document).ready(function () {
-  Router.route(window.location.pathname);
-});
 
 
+
+
+$(function() {
+    App.initialize();
+  });
 
 

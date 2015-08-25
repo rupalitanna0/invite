@@ -6,15 +6,15 @@ SignupView = Backbone.View.extend({
   attributes: function () {
     return {
       name: this.nameField.val(),
-      email: this.emailField.val(),
-      password: this.passwordField.val(),
-      password_confirmation: this.passwordConfirmationField.val(),
+      lastname: this.lastnameField.val(),
       cellno: this.cellnoField.val(),
       address: this.addressField.val(),
       gender: this.genderField.val(),
       age: this.ageField.val(),
-      lastname: this.lastnameField.val(),
-      state: this.stateField.val()
+      state: this.stateField.val(),
+      email: this.emailField.val(),
+      password: this.passwordField.val(),
+      password_confirmation: this.passwordConfirmationField.val()
     };
   },
 
@@ -46,22 +46,26 @@ SignupView = Backbone.View.extend({
   },
 
   initialize: function () {
+    this.template = HandlebarsTemplates['signUp'];
+    this.render();
     this.form = this.$el.find('form');
-    this.nameField = this.$el.find('input[name="user[name]"]');
-    this.emailField = this.$el.find('input[name="user[email]"]');
-    this.passwordField = this.$el.find('input[name="user[password]"]');
-    this.passwordConfirmationField = this.$el.find('input[name="user[password_confirmation]"]');
-    this.ageField = this.$el.find('input[name="user[age]"]');
-    this.stateField = this.$el.find('input[name="user[state]"]');
-    this.addressField = this.$el.find('input[name="user[address]"]');
-    this.cellnoField = this.$el.find('input[name="user[cellno]"]');
-    this.ageField = this.$el.find('input[name="user[age]"]');
-    this.lastnameField = this.$el.find('input[name="user[lastname]"]');
-    this.genderField = this.$el.find('input[name="user[gender]"]');
-
-
-
+    this.nameField = this.$el.find('input[name=name]');
+    this.emailField = this.$el.find('input[name=email]');
+    this.passwordField = this.$el.find('input[name=password]');
+    this.passwordConfirmationField = this.$el.find('input[name=password_confirmation]');
+    this.ageField = this.$el.find('input[name=age]');
+    this.stateField = this.$el.find('input[name=state]');
+    this.addressField = this.$el.find('input[name=address]');
+    this.cellnoField = this.$el.find('input[name=cellno]');
+    this.ageField = this.$el.find('input[name=age]');
+    this.lastnameField = this.$el.find('input[name=lastname]');
+    this.genderField = this.$el.find('input[name=gender]');
     this.submitButton = this.$el.find('input[type=submit]');
+  },
+  render: function(){
+    this.$el.html(this.template);
+
+    $("#signup-view").append(this.$el);
   }
 });
 

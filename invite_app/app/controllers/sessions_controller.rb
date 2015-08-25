@@ -6,10 +6,11 @@ class SessionsController < ApplicationController
 
     if @user
       create_user_session(@user)
-      respond_with @user, :location => '/', :notice => "Login succesful."
+      respond_with @user, :location => 'homepage', :notice => "Login succesful."
     else
+      binding.pry
       respond_to do |format|
-        format.html { render 'new' }
+        format.html { render 'login' }
         format.json { render :json => {:error => "Invalid email or password."} }
       end
     end

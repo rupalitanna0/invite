@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'application#homepage'
   resources :rsvps
   resources :photogalleries
   resources :events
@@ -14,5 +15,7 @@ Rails.application.routes.draw do
 
   resource :account, :controller => 'users', :only => [:new, :create]
 
- 
+  get '/foobar' => 'photogalleries#foobar'
+  get '/users/guests'=> 'users#guests'
+ # get '/homepage'=>'applicationcontroller#homepage'
 end

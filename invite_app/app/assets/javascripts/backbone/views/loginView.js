@@ -1,19 +1,19 @@
-LoginView = Backbone.View.extend({
+App.Views.LoginView = Backbone.View.extend({
   el: '#login-view',
   events: { 'submit form':   'authorize' },
 
   authorize: function () {
-    if (this.submitButton.hasClass('disabled') && !(this.form.data('user-authorized') === true)) {
-      return false;
-    } else {
-      this.submitButton.addClass('disabled');
-    }
-
-    var self = this,
-        attrs = {
+    // if (this.submitButton.hasClass('disabled') && !(this.form.data('user-authorized') === true)) {
+    //   return false;
+    // } else {
+    //   this.submitButton.addClass('disabled');
+    // }
+        var self = this,
+         attrs = {
           email: this.emailField.val(),
           password: this.passwordField.val()
         };
+
     User.authorize(attrs, function (err, user) {
       if (err) { self.loginFailure(); }
       else { self.loginSuccess(); }
@@ -37,10 +37,17 @@ LoginView = Backbone.View.extend({
   },
 
   initialize: function () {
+    this.template = HandlebarsTemplates['login'];
+    this.render();
     this.form = this.$el.find('form');
-    this.emailField = this.$el.find('input[name=email]');
-    this.passwordField = this.$el.find('input[name=password]');
-    this.submitButton = this.$el.find('input[type=submit]');
+    this.emailField = this.$el.find('#login-email');
+    this.passwordField = this.$el.find('#login-password');
+    this.submitButton = this.$el.find('#login-button');
   },
+  render: function(){
+    this.$el.html(this.template);
+
+    $('#login-view').append(this.$el);
+  }
 
 });

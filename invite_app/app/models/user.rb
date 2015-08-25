@@ -19,7 +19,6 @@ class User < ActiveRecord::Base
   end
   
   def password=(pass)
-  	#binding.pry
     return if pass.blank?
     @password = pass
     self.password_digest = BCrypt::Password.create(pass)
