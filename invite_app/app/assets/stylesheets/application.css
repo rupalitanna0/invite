@@ -165,6 +165,17 @@ html, body {
 .fullPage-tooltip.right {
     right: 20px;
 }
-.fullPage-tooltip.left {
+.fullPage-tooltip.left 
+{
     left: 20px;
+}
+.photogallery{
+    display: inline-block;
+    padding: 25px;
+}
+#signup{
+    border: white 2px solid;
+    margin: 25px 85px;
+    font-size: 24px;
+    
 }

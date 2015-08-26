@@ -19,11 +19,11 @@ SignupView = Backbone.View.extend({
   },
 
   createUser: function () {
-    if (this.submitButton.hasClass('disabled') && this.form.data('user-created') !== true) {
-      return false;
-    } else {
-      this.submitButton.addClass('disabled');
-    }
+    // if (this.submitButton.hasClass('disabled') && this.form.data('user-created') !== true) {
+    //   return false;
+    // } else {
+    //   this.submitButton.addClass('disabled');
+    // }
 
     var self = this,
         user = new User(this.attributes());
